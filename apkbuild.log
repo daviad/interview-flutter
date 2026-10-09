@@ -1,0 +1,8 @@
+﻿flutter.bat : Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+At line:15 char:2754
++ ... tudio\jbr'; & 'C:\Users\dxw\fvm\flutter\bin\flutter.bat' build apk -- ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Flutter assets ...st this source!:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Target file "lib\main.dart" not found.

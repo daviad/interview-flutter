@@ -1,0 +1,21 @@
+# =============================================================================
+# moviely_core_domain —— 领域层（对标 component-moviely 的 common/common-domain）
+# =============================================================================
+# 纯 Dart 包：零 Flutter 依赖，只放领域模型 / 领域接口。
+# 依赖方向铁律：domain 层不依赖任何其他 core 包（依赖反转：data/feature 依赖它）。
+#
+# 🍎 UIKit 类比：iOS 里的 Model 层（纯 Swift struct/NSObject，不引 UIKit）。
+name: moviely_core_domain
+description: Moviely 领域模型（Movie 等），纯 Dart 零 Flutter 依赖
+publish_to: none
+version: 1.0.0
+
+environment:
+  sdk: ^3.9.0
+
+# pub workspace 成员标记
+resolution: workspace
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.24.0

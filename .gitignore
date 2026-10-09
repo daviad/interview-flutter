@@ -1,0 +1,32 @@
+# Flutter / Dart 构建产物
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Android
+**/android/.gradle/
+**/android/local.properties
+**/android/key.properties
+*.keystore
+*.jks
+
+# 代码生成产物（build_runner 生成，可随时再生）
+*.g.dart
+
+# 本地密钥/环境（TMDB API Key 只走 --dart-define，不落盘）
+.env
+local.properties
+
+# 系统
+.DS_Store
+Thumbs.db

@@ -1,0 +1,41 @@
+# =============================================================================
+# moviely_app_launch —— 聚合器（对标 component-moviely 的 app-launch）
+# =============================================================================
+# 【可插拔架构的核心规则】
+#   全工程只有这个包被允许 import 具体 feature 包（feature_home…）。
+#   它做的事只有一件：把各 feature 的 FeatureModule 实例收集起来，
+#   通过 override 注入 core_launch 的 featureModulesProvider。
+#   新增 feature = 在这里加一行依赖 + 列表里加一个实例，壳零改动。
+name: moviely_app_launch
+description: 聚合器：收集所有 feature 模块，注入壳工程的 DI 容器
+publish_to: none
+version: 1.0.0
+
+environment:
+  sdk: ^3.9.0
+  flutter: ">=3.47.0"
+
+# pub workspace 成员标记
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^3.0.0
+  shared_preferences: ^2.3.2
+  moviely_core_launch:
+    path: ../core/core_launch
+  # ↓↓↓ 全工程唯一一处引用具体 feature 的地方 ↓↓↓
+  moviely_feature_home:
+    path: ../features/feature_home
+  moviely_feature_detail:
+    path: ../features/feature_detail
+  moviely_feature_search:
+    path: ../features/feature_search
+  moviely_feature_favorite:
+    path: ../features/feature_favorite
+  moviely_feature_test:
+    path: ../features/feature_test
+
+dev_dependencies:
+  flutter_lints: ^6.0.0

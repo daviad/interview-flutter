@@ -1,0 +1,42 @@
+# =============================================================================
+# moviely_app —— 壳工程（对标 component-moviely 的 app 模块）
+# =============================================================================
+# 铁律：本包永不 import 任何具体 feature（moviely_feature_*）。
+# 只依赖 app_launch 聚合器（间接拿到 feature 清单）与 core_* 基础包。
+name: moviely_app
+description: Moviely 组件化壳工程
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.0
+
+# pub workspace 成员标记：依赖统一在根 pubspec.yaml 解析（= settings.gradle include）
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^3.0.0
+  go_router: ^15.0.0
+  cupertino_icons: ^1.0.8
+
+  # 聚合器：壳只认它（bootstrapOverrides + buildAsyncBootstrapOverrides
+  # 已收集全部 feature 与 favoriteRepository 注入，壳零 feature import）
+  moviely_app_launch:
+    path: ../packages/app_launch
+  # 基础包：协议/主题/网络契约（tmdb key 注入点）
+  moviely_core_launch:
+    path: ../packages/core/core_launch
+  moviely_core_network:
+    path: ../packages/core/core_network
+  moviely_core_ui:
+    path: ../packages/core/core_ui
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true

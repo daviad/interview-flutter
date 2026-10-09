@@ -1,0 +1,52 @@
+# =============================================================================
+# Moviely Flutter 工作区根配置（pub workspace）
+# =============================================================================
+#
+# 【这是什么？】pub workspace 是 Dart 3.6+ 的原生多包管理机制，等价于 Android
+# 工程里 settings.gradle.kts 的 include(":module")：所有子包共享一次依赖解析、
+# 一个 .dart_tool、一个 pubspec.lock，互相之间用 path 依赖自动指向工作区内的包
+# （等价于 Gradle Composite Build 的 substitution：写包名即解析到本地源码）。
+#
+# 🍎 UIKit 类比：类似 Xcode workspace（.xcworkspace）把多个 framework project
+#    挂在同一个工作区里一起编译。
+#
+# 【包分层】（严格对标 component-moviely 的模块划分）
+#   app .......................... 壳工程（= app/，只装配，不感知业务）
+#   packages/app_launch .......... 聚合器（= app-launch/，★全工程唯一 import feature 的包）
+#   packages/core/core_launch .... 装配协议层（= common-launch/，FeatureModule 协议）
+#   packages/core/core_domain .... 领域模型（= common-domain/，纯 Dart 零 Flutter 依赖）
+#   packages/core/core_network ... 网络基础设施（= data-api/ + common-data/ 常量）
+#   packages/core/core_ui ........ 主题 + 共享组件（= common-ui/）
+#   packages/features/feature_home  首页业务（= feature-home/，永不依赖壳）
+#
+# feature_home 的 example/ 独立调试 app 不写进 workspace（它类似 Android 的
+# standalone 源集，自带独立 pubspec 用 path 依赖解析，见该目录说明）。
+name: moviely_workspace
+description: Moviely Flutter 组件化工程（壳 + 聚合器 + 协议层 + core + feature）
+publish_to: none
+
+environment:
+  sdk: ^3.9.0
+
+workspace:
+  - app
+  - packages/app_launch
+  - packages/core/core_launch
+  - packages/core/core_domain
+  - packages/core/core_network
+  - packages/core/core_ui
+  - packages/features/feature_home
+  - packages/features/feature_detail
+  - packages/features/feature_search
+  - packages/features/feature_favorite
+  - packages/features/feature_test
+
+# 工作区级 dev 依赖：代码生成（build_runner = KSP 的地位）与 lint 插件，
+# 对所有子包生效，无需每个包重复声明。
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  build_runner: ^2.4.0
+  json_serializable: ^6.9.0
+  riverpod_generator: ^3.0.0
+  custom_lint: ^0.8.0
+  riverpod_lint: ^3.0.0

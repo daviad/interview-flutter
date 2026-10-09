@@ -1,0 +1,45 @@
+# =============================================================================
+# moviely_feature_detail —— 电影详情业务模块（对标独立仓 feature-detail）
+# =============================================================================
+# 组件化铁律：本包永不依赖 app / app_launch（feature 不能反向依赖壳）；
+# 只依赖 core_* 基础包。业务端点（DetailApi）与业务 DTO 归本包私有。
+name: moviely_feature_detail
+description: 详情 feature：TMDB /movie/{id}，MVI(Riverpod) 呈现
+publish_to: none
+version: 1.0.0
+
+environment:
+  sdk: ^3.9.0
+  flutter: ">=3.47.0"
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^3.0.0
+  riverpod_annotation: ^3.0.0
+  go_router: ^15.0.0
+  json_annotation: ^4.9.0
+  cached_network_image: ^3.4.1
+  moviely_core_launch:
+    path: ../../core/core_launch
+  moviely_core_domain:
+    path: ../../core/core_domain
+  moviely_core_network:
+    path: ../../core/core_network
+  moviely_core_ui:
+    path: ../../core/core_ui
+  # 跨模块共享 favoriteRepositoryProvider（只 import 数据 Provider，不 import 页面）
+  moviely_feature_favorite:
+    path: ../feature_favorite
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  build_runner: ^2.4.0
+  riverpod_generator: ^3.0.0
+  json_serializable: ^6.9.0
+  custom_lint: ^0.8.0
+  riverpod_lint: ^3.0.0

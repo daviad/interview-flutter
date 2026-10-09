@@ -1,0 +1,29 @@
+# =============================================================================
+# moviely_core_network —— 网络基础设施层
+# =============================================================================
+# 对标 component-moviely 的 data/data-api（Ktor + 端点无关 TmdbClient）
+# + common/common-data（TMDB 常量，合并进本包）。
+#
+# 铁律：本包业务无关 —— 只提供「怎么发请求」（Dio 实例、鉴权、超时、泛型 GET），
+# 任何业务端点（/movie/popular 之类）和业务 DTO 都归 feature 包自己所有。
+name: moviely_core_network
+description: 端点无关的 TMDB 网络基础设施（Dio + TmdbClient + 全局常量）
+publish_to: none
+version: 1.0.0
+
+environment:
+  sdk: ^3.9.0
+  flutter: ">=3.47.0"
+
+# pub workspace 成员标记
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^3.0.0
+  dio: ^5.7.0
+  pretty_dio_logger: ^1.4.0
+
+dev_dependencies:
+  flutter_lints: ^6.0.0

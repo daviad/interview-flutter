@@ -1,0 +1,30 @@
+# =============================================================================
+# moviely_core_launch —— 装配协议层（对标 component-moviely 的 common/common-launch）
+# =============================================================================
+# 全工程最核心的解耦层：定义「一个 feature 模块接入壳工程需要满足什么契约」。
+# 壳工程和 feature 都只依赖本包的抽象类型，互不 import 对方。
+#
+# 对标 Android：
+#   ModuleLifecycle 接口  → FeatureModule.onCreate/onTerminate
+#   ModuleNavigator 接口  → FeatureModule.routes（GoRoute 列表贡献）
+#   @IntoSet Set<T> 收集  → featureModulesProvider（Riverpod List 聚合）
+name: moviely_core_launch
+description: 组件化装配协议（FeatureModule 契约 + 路由常量 + 模块聚合 Provider）
+publish_to: none
+version: 1.0.0
+
+environment:
+  sdk: ^3.9.0
+  flutter: ">=3.47.0"
+
+# pub workspace 成员标记
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^3.0.0
+  go_router: ^15.0.0
+
+dev_dependencies:
+  flutter_lints: ^6.0.0

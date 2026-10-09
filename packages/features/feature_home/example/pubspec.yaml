@@ -1,0 +1,35 @@
+# =============================================================================
+# feature_home_example —— feature 独立调试 App（对标 Android 的 standalone 源集）
+# =============================================================================
+# 不经过壳/聚合器，直接挂 HomeScreen，配自己的 ProviderScope 和 API key。
+# 目的：单独开发/调试首页时不用编译整个 App（组件化「可独立运行」的体现）。
+#
+# 注意：example 不在根 workspace 成员列表内，是独立 package。
+name: feature_home_example
+description: feature_home 独立调试 App
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^3.0.0
+  cupertino_icons: ^1.0.8
+
+  moviely_feature_home:
+    path: ../
+  moviely_core_network:
+    path: ../../../core/core_network
+  moviely_core_ui:
+    path: ../../../core/core_ui
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true

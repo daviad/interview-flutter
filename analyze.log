@@ -1,0 +1,47 @@
+﻿flutter.bat : Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+At line:15 char:2754
++ ... tudio\jbr'; & 'C:\Users\dxw\fvm\flutter\bin\flutter.bat' analyze *> a ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Flutter assets ...st this source!:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 91.0.0 (108.0.0 available)
+  analyzer 8.4.0 (14.4.0 available)
+  analyzer_buffer 0.1.11 (0.3.4 available)
+  analyzer_plugin 0.13.10 (0.14.17 available)
+  build 4.0.7 (4.0.11 available)
+  build_runner 2.15.1 (2.16.1 available)
+  cached_network_image 3.4.1 (4.0.0 available)
+  cached_network_image_platform_interface 4.1.1 (5.0.0 available)
+  cached_network_image_web 1.3.1 (2.0.0 available)
+  cli_util 0.4.2 (0.6.0 available)
+  custom_lint_core 0.8.1 (0.8.2 available)
+  custom_lint_visitor 1.0.0+8.4.0 (1.0.0+9.0.0 available)
+  dart_style 3.1.3 (3.1.13 available)
+  flutter_riverpod 3.0.3 (3.4.3 available)
+  go_router 15.1.3 (18.0.1 available)
+  json_annotation 4.9.0 (4.12.0 available)
+  json_serializable 6.11.2 (6.14.1 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  mockito 5.6.4 (5.8.1 available)
+  package_config 2.2.0 (3.0.0 available)
+  riverpod 3.0.3 (3.4.3 available)
+  riverpod_analyzer_utils 1.0.0-dev.7 (1.0.0-dev.12 available)
+  riverpod_annotation 3.0.3 (4.0.7 available)
+  riverpod_generator 3.0.3 (4.0.9 available)
+  riverpod_lint 3.0.3 (3.1.9 available)
+  source_gen 4.2.4 (4.3.0 available)
+  source_helper 1.3.8 (1.3.13 available)
+  test 1.31.1 (1.32.0 available)
+  test_api 0.7.12 (0.7.14 available)
+  test_core 0.6.18 (0.6.20 available)
+Got dependencies!
+30 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Resolving dependencies in `.\packages\features\feature_home\example`...
+Downloading packages...
+Got dependencies in `.\packages\features\feature_home\example`.
+Analyzing MovieFlutter...                                       
+No issues found! (ran in 6.7s)

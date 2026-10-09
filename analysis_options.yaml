@@ -1,0 +1,25 @@
+# =============================================================================
+# 工作区统一静态检查配置（对所有子包生效）
+# =============================================================================
+# include flutter_lints：Flutter 官方推荐规则集（等价 Android 的 ktlint/Android Lint）
+# custom_lint 插件：启用 riverpod_lint（检查 Provider 写法、ref 误用等）
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  plugins:
+    - custom_lint
+  language:
+    strict-casts: true       # 禁止隐式危险转型（对应 Kotlin 的 unsafe cast 警告）
+    strict-raw-types: true   # 禁止裸泛型（对应 Kotlin Raw Type 警告）
+  errors:
+    # 工作区内 path 依赖互相 import 属于正常架构分层，不允许触发 depend_on_referenced_packages
+    depend_on_referenced_packages: ignore
+    # riverpod_lint 依赖的 custom_lint 仍使用旧版 analyzer 插件 API，
+    # 该框架侧弃用警告与业务代码无关，待 custom_lint 迁移后可移除此行
+    analysis_options_deprecated_plugins: ignore
+
+linter:
+  rules:
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    avoid_print: true  # 业务代码禁止 print，调试输出统一用 debugPrint
